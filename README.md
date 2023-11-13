@@ -29,3 +29,6 @@ Obtener lista de alumnos ordenados ascendente y descendente por calificación.
 Con los datos almacenados en el prototipo agregar otro ordenamiento o búsqueda bajo el parámetro que quieran (Este es el punto extra).
 
 5.- Preferentemente todo guarden en LocalStorage para que puedan tener persistencia de datos (Opcional x2)
+
+Errores por solucionar: 
+cambiar la forma en la que se busca busca a cada registro materia, por el metodo que estamos usando, si el usuario elimina materias, rompe el programa. 

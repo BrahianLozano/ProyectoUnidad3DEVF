@@ -1,4 +1,31 @@
+<<<<<<< Updated upstream
 Alumnos = []
+=======
+<<<<<<< Updated upstream
+=======
+var Alumnos = [];
+//----------------------------------------------------------------------------------
+function CargarDatos(){
+
+if (localStorage.getItem("DatabaseAlumnos")){
+
+   Alumnos = JSON.parse( localStorage.getItem("DatabaseAlumnos") );
+   }else{
+    console.log('no hay datos guardados')
+   }
+}
+//----------------------------------------------------------------------------------
+CargarDatos();
+
+//----------------------------------------------------------------------------------
+function GuardarDatos(datosAlumnos){
+
+   localStorage.setItem("DatabaseAlumnos", JSON.stringify(datosAlumnos));
+
+}
+//----------------------------------------------------------------------------------
+
+>>>>>>> Stashed changes
 class Alumno{
     constructor(nombre, apellidoPaterno, apellidoMaterno, edad, grupo){
         this.nombre = nombre;
@@ -10,6 +37,11 @@ class Alumno{
         this.grupo = grupo;
         this.materias = [];
     }
+<<<<<<< Updated upstream
+=======
+
+    
+>>>>>>> Stashed changes
 }
 class Materia{
     constructor(nombre, calificacion){
@@ -38,12 +70,24 @@ form.addEventListener('submit', (event) =>{
     console.log('Alumno registrado: ', nuevoAlumno);
     //debemos comprobar si existen materias y si es asi, debemos de registrar todos los inputs.
     Alumnos.push(nuevoAlumno);
+<<<<<<< Updated upstream
 
     formularioCompleto.reset();
     console.log(Alumnos)
 })
 
 
+=======
+    // guardar en localstorage los datos del alumno
+    GuardarDatos(Alumnos);
+
+    formularioCompleto.reset();
+    console.log(Alumnos)
+
+})
+
+//----------------------------------------------------------------------------------
+>>>>>>> Stashed changes
 function insertarMaterias(Alumno){
     //se obtiene el div main
     const elementoPadre = document.getElementById('EspacioMaterias');
@@ -104,4 +148,120 @@ function eliminarMateria(button){
     let materiaPorEliminar = document.getElementById(idMateria);
     //se elimina el elemento por el id de la materia
     materiaPorEliminar.parentNode.removeChild(materiaPorEliminar);
+<<<<<<< Updated upstream
 }
+=======
+}
+
+
+//--------------------            BUSCAR ALUMNO          -------------------------------------------------
+
+function buscarAlumno(){ //buscar por nombre ó apellidos
+   // console.log('no hay alumnos en tu escuela :(')
+    let ListaAlumnosRegistrados = []; 
+    let FindNombre = document.getElementById('FindName').value
+    
+   //  borrar los divs que contienen los nombres de los alumnos encontrados para hacer nueva lista
+   const elementDiv = document.getElementById("EspacioDetallesAlumno");
+   while (elementDiv.firstChild) {
+       elementDiv.removeChild(elementDiv.firstChild);
+   }
+   //----------------------------------------------------------------------   
+
+ if (Alumnos.length > 0 && FindNombre != undefined)  {
+
+    for(let i = 0; i < Alumnos.length; i++){
+        if( (Alumnos[i].nombre == FindNombre) // buscar solo por nombre
+          || (FindNombre == Alumnos[i].nombre + ' ' + Alumnos[i].apellidoPaterno) // buscar por nombre y un apellido
+          || (FindNombre == Alumnos[i].nombre + ' ' + Alumnos[i].apellidoPaterno + ' ' + Alumnos[i].apellidoMaterno) // buscar por nombre completo
+          || (FindNombre == Alumnos[i].apellidoPaterno + ' ' + Alumnos[i].apellidoMaterno )// buscar por apellidos
+          || (FindNombre == Alumnos[i].apellidoPaterno) // buscar por  apellido paterno
+          || (FindNombre == Alumnos[i].apellidoMaterno) // buscar por  apellido materno
+          
+          )
+          {  
+          
+            ListaAlumnosRegistrados.push(Alumnos[i])
+            DetallesAlumno(Alumnos[i].nombre + ' ' + Alumnos[i].apellidoPaterno + ' ' + Alumnos[i].apellidoMaterno)
+            //return ListaAlumnosRegistrados;
+            
+          }else{console.log('alumno no registrado')}
+    }
+       console.log(ListaAlumnosRegistrados)
+ }else{console.log('no hay alumnos en tu escuela :(')}
+
+    return null;
+
+}
+//-------    agregar contenido al html si encuentra alumnos
+function DetallesAlumno(alumno){
+
+
+
+// crear divs "a"  para vincular a cada alumno a una seccion de detalles
+const espacioDetallesAlumno = document.getElementById('EspacioDetallesAlumno')
+const detallesAlumno = document.createElement("div");
+//le asignamos nombre para identificar a cada div 
+detallesAlumno.id = "DetallesAlumno";
+detallesAlumno.innerHTML = `<a href="">${alumno}</a>`
+espacioDetallesAlumno.appendChild(detallesAlumno);
+
+
+  
+
+
+}
+
+
+
+
+
+
+
+//---------------------------------------------------------------------------------------------------------
+
+//  sacar un promedio de un grupo
+
+function PromedioGrupal(){
+    let ListaGrupo1 = [];
+    let ListaGrupo2 = [];
+    let ListaGrupo3 = [];
+
+    // hacemos tres listas de los tres grupos
+    if (Alumnos.length > 0 )  {
+        for(let i = 0; i < Alumnos.length; i++){
+            if (Alumnos[i].grupo == 'grupo 1'){
+
+                ListaGrupo1.push(Alumnos[i])
+            }else if (Alumnos[i].grupo == 'grupo 2'){
+                ListaGrupo2.push(Alumnos[i])
+            }else if (Alumnos[i].grupo == 'grupo 3'){
+                ListaGrupo3.push(Alumnos[i])
+            }
+
+          
+        }
+    }
+
+
+    if (ListaGrupo1.length > 0){
+        ListaGrupo1.sort((a, b) => a - b)
+    }
+
+    console.log('miembros del grupo 1:',ListaGrupo1)
+    console.log('miembros del grupo 2:',ListaGrupo2)
+    console.log('miembros del grupo 3:',ListaGrupo3)
+
+}
+
+PromedioGrupal()
+//console.log(grupoSeleccionado.value)
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes

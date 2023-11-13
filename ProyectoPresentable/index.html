@@ -1,0 +1,47 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Alumnos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Registro</h1>
+        <form class="form" id="formularioCompleto">
+            <div id="DatosPrincipales">
+                <h2>Ingrese los datos del alumno.</h2>
+                <label>Nombre</label>
+                <input type="text" placeholder="Ingresa el nombre del alumno..." id="PrimerNombre" required>
+                <br>
+                <label>Primer apellido</label>
+                <input type="text" placeholder="Ingresa el apellido del alumno..." id="ApellidoPaterno" required>
+                <br>
+                <label>Segundo apellido</label>
+                <input type="text" placeholder="Ingresa el apellido del alumno..." id="ApellidoMaterno" required>
+                <br>
+                <label>Edad</label>
+                <input type="text" placeholder="Ingresa la edad del alumno..." id="Edad" required>
+            </div>
+            <div id="SeleccionarGrupo">
+                <h2>Selecciona el grupo</h2>
+                <select name="" id="grupoSeleccionado">
+                    <option value="grupo 1">grupo1</option>
+                    <option value="grupo 2">grupo2</option>
+                    <option value="grupo 3">grupo3</option>
+                </select>
+            </div>
+            <div id="AgregarMateria">
+                <div class="botonMateriaTitulo">
+                    <h2>Agregar materia</h2>
+                    <button type="button" class="buttonSuma" onclick="agregarMateria()">+</button>
+                </div>
+                <div id="EspacioMaterias">
+    
+                </div>
+            </div>
+            <input type="submit" value="Registrar">
+        </form>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

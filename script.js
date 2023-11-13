@@ -1,9 +1,17 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 Alumnos = []
 =======
 <<<<<<< Updated upstream
 =======
+=======
+
+Alumnos = []
+
+
+
+>>>>>>> Stashed changes
 var Alumnos = [];
 //----------------------------------------------------------------------------------
 function CargarDatos(){
@@ -26,15 +34,23 @@ function GuardarDatos(datosAlumnos){
 }
 //----------------------------------------------------------------------------------
 
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
+=======
+
+>>>>>>> Stashed changes
 //nuestra poderosisima estructura dee datos
 Alumnos = []
 //variable para poder distinguir materias al momento de eliminar la materia desde el boton de eliminar
 let numeroDeMateria = 1;
 
 //clase alumno
+<<<<<<< Updated upstream
 >>>>>>> 75ac5a7a395a4ec1e543ac95f1d0b3aced3b5c85
+=======
+
+>>>>>>> Stashed changes
 class Alumno{
     constructor(nombre, apellidoPaterno, apellidoMaterno, edad, grupo){
         this.nombre = nombre;
@@ -45,9 +61,13 @@ class Alumno{
         this.materias = [];
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 
     
+>>>>>>> Stashed changes
+=======
+
 >>>>>>> Stashed changes
 }
 //clase materia que va a ir dentro de alumno.materias
@@ -72,6 +92,7 @@ form.addEventListener('submit', (event) =>{
     let nuevoAlumno = new Alumno(nombre, apellidoPaterno, apellidoMaterno, edad, grupoSeleccionado);
     //registramos materias del alumno.
     insertarMaterias(nuevoAlumno);
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     console.log('Alumno registrado: ', nuevoAlumno);
     //debemos comprobar si existen materias y si es asi, debemos de registrar todos los inputs.
@@ -99,9 +120,32 @@ form.addEventListener('submit', (event) =>{
     Alumnos.push(nuevoAlumno); //agregamos a la estructura de datos el alumno registrado
     console.log(Alumnos) //comprobamos si se registra bien en la estructura de datos
     formularioCompleto.reset(); //se borran los datos del formulario para facilitar el registro de otro alumno.
+=======
+
+    console.log('Alumno registrado: ', nuevoAlumno);
+    //debemos comprobar si existen materias y si es asi, debemos de registrar todos los inputs.
+    Alumnos.push(nuevoAlumno);
+
+    GuardarDatos(Alumnos); // guardar en localstorage los datos del alumno
+    formularioCompleto.reset();
+    console.log(Alumnos)
+>>>>>>> Stashed changes
 })
+
+
+
+    
+    
+
+
+//----------------------------------------------------------------------------------
+
 //para insertar cada materia en el alumno en registro.
+<<<<<<< Updated upstream
 >>>>>>> 75ac5a7a395a4ec1e543ac95f1d0b3aced3b5c85
+=======
+
+>>>>>>> Stashed changes
 function insertarMaterias(Alumno){
     const elementoPadre = document.getElementById('EspacioMaterias'); //se obtiene el div main
     const inputsMateria = elementoPadre.querySelectorAll('.input-materia'); //Se obtiene la cantidad de divs que hay dentro del div main
@@ -134,7 +178,11 @@ function agregarMateria(){
 
 //funcion para eliminar el espacio creadoo agregar materia con el boton '-'
 function eliminarMateria(button){
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+
+>>>>>>> Stashed changes
     //muy posiblemente se puede simplificar mas este codigo...
     //se obtiene el elemento completo, el div del boton
     let materia = button.parentNode;
@@ -145,11 +193,19 @@ function eliminarMateria(button){
     //se elimina el elemento por el id de la materia
     materiaPorEliminar.parentNode.removeChild(materiaPorEliminar);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 }
 =======
 }
 
 
+=======
+
+}
+
+
+
+>>>>>>> Stashed changes
 //--------------------            BUSCAR ALUMNO          -------------------------------------------------
 
 function buscarAlumno(){ //buscar por nombre ó apellidos
@@ -182,6 +238,7 @@ function buscarAlumno(){ //buscar por nombre ó apellidos
             //return ListaAlumnosRegistrados;
             
           }else{console.log('alumno no registrado')}
+<<<<<<< Updated upstream
     }
        console.log(ListaAlumnosRegistrados)
  }else{console.log('no hay alumnos en tu escuela :(')}
@@ -270,3 +327,82 @@ PromedioGrupal()
     }
 }
 >>>>>>> 75ac5a7a395a4ec1e543ac95f1d0b3aced3b5c85
+=======
+    }
+       console.log(ListaAlumnosRegistrados)
+ }else{console.log('no hay alumnos en tu escuela :(')}
+
+    return null;
+
+}
+//-------    agregar contenido al html si encuentra alumnos
+function DetallesAlumno(alumno){
+
+
+
+// crear divs "a"  para vincular a cada alumno a una seccion de detalles
+const espacioDetallesAlumno = document.getElementById('EspacioDetallesAlumno')
+const detallesAlumno = document.createElement("div");
+//le asignamos nombre para identificar a cada div 
+detallesAlumno.id = "DetallesAlumno";
+detallesAlumno.innerHTML = `<a href="">${alumno}</a>`
+espacioDetallesAlumno.appendChild(detallesAlumno);
+
+
+  
+
+
+}
+
+
+
+
+
+
+
+//---------------------------------------------------------------------------------------------------------
+
+//  sacar un promedio de un grupo
+
+function PromedioGrupal(){
+    let ListaGrupo1 = [];
+    let ListaGrupo2 = [];
+    let ListaGrupo3 = [];
+
+    // hacemos tres listas de los tres grupos
+    if (Alumnos.length > 0 )  {
+        for(let i = 0; i < Alumnos.length; i++){
+            if (Alumnos[i].grupo == 'grupo 1'){
+
+                ListaGrupo1.push(Alumnos[i])
+            }else if (Alumnos[i].grupo == 'grupo 2'){
+                ListaGrupo2.push(Alumnos[i])
+            }else if (Alumnos[i].grupo == 'grupo 3'){
+                ListaGrupo3.push(Alumnos[i])
+            }
+
+          
+        }
+    }
+
+
+    if (ListaGrupo1.length > 0){
+        ListaGrupo1.sort((a, b) => a - b)
+    }
+
+    console.log('miembros del grupo 1:',ListaGrupo1)
+    console.log('miembros del grupo 2:',ListaGrupo2)
+    console.log('miembros del grupo 3:',ListaGrupo3)
+
+}
+
+PromedioGrupal()
+//console.log(grupoSeleccionado.value)
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
